@@ -165,8 +165,6 @@ const queryChain = (done) => {
         done(null, personSearch);
       }
     });
-
-  done(null /*, data*/);
 };
 
 /** **Well Done !!**
