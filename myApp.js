@@ -6,9 +6,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-const Schema = mongoose.Schema;
-
-let personSchema = new Schema({
+let personSchema = new mongoose.Schema({
   email: { type: String, required: true },
   age: Number,
   favoriteFoods: [String],
@@ -72,14 +70,14 @@ const queryChain = (done) => {
 
 //----- **DO NOT EDIT BELOW THIS LINE** ----------------------------------
 
-exports.PersonModel = Person;
-exports.createAndSavePerson = createAndSavePerson;
-exports.findPeopleByName = findPeopleByName;
-exports.findOneByFood = findOneByFood;
-exports.findPersonById = findPersonById;
-exports.findEditThenSave = findEditThenSave;
-exports.findAndUpdate = findAndUpdate;
-exports.createManyPeople = createManyPeople;
-exports.removeById = removeById;
-exports.removeManyPeople = removeManyPeople;
-exports.queryChain = queryChain;
+// exports.PersonModel = Person;
+// exports.createAndSavePerson = createAndSavePerson;
+// exports.findPeopleByName = findPeopleByName;
+// exports.findOneByFood = findOneByFood;
+// exports.findPersonById = findPersonById;
+// exports.findEditThenSave = findEditThenSave;
+// exports.findAndUpdate = findAndUpdate;
+// exports.createManyPeople = createManyPeople;
+// exports.removeById = removeById;
+// exports.removeManyPeople = removeManyPeople;
+// exports.queryChain = queryChain;
