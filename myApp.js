@@ -29,12 +29,25 @@ const createAndSavePerson = function (done) {
   });
 };
 
-// const createAndSavePerson = (done) => {
-//   done(null /*, data*/);
-// };
+// Create Many Records with model.create()
+const arrayOfPeople = [
+  {
+    name: "Daniel",
+    age: 38,
+    favoriteFoods: ["eggs", "fish", "fresh fruit"],
+  },
+  {
+    name: "Guille",
+    age: 36,
+    favoriteFoods: ["eggs", "fresh fruit"],
+  },
+];
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  Person.create(arrayOfPeople, function (err, people) {
+    if (err) return console.log(err);
+    done(null, people);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
