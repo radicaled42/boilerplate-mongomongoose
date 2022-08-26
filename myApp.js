@@ -115,9 +115,9 @@ const findAndUpdate = (personNameEdit, done) => {
     { name: personNameEdit },
     { age: ageToSet },
     opts,
-    function (err, updatedPerson) {
-      if (err) return console.error(err);
-      done(null, updatedPerson);
+    (err, updatedDoc) => {
+      if (err) return console.log(err);
+      done(null, updatedDoc);
     }
   );
 };
