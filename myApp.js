@@ -128,9 +128,9 @@ const removeById = (personId, done) => {
       console.log(err);
     } else {
       console.log("Removed User : ", personDeleted);
+      done(null, personDeleted);
     }
   });
-  done(null, personDeleted);
 };
 
 const removeManyPeople = (done) => {
