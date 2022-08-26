@@ -84,10 +84,24 @@ const findPersonById = (personId, done) => {
   });
 };
 
+// Perform Classic Updates by Running Find, Edit, then Save
+const personIdEdit = "6308fb0220d3bc0784823440";
+
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
 
-  done(null /*, data*/);
+  // .findById() method to find a person by _id with the parameter personId as search key.
+  Person.findById(personId, (err, person) => {
+    if (err) return console.log(err);
+
+    person.favoriteFoods.push(foodToAdd);
+
+    person.save(function (err, updatedPerson) {
+      if (err) return console.error(err);
+      done(null, updatedPerson);
+    });
+  });
+  //done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
