@@ -39,7 +39,7 @@ const arrayOfPeople = [
   {
     name: "Guille",
     age: 36,
-    favoriteFoods: ["eggs", "fresh fruit"],
+    favoriteFoods: ["meat", "pasta"],
   },
 ];
 
@@ -60,8 +60,14 @@ const findPeopleByName = (personName, done) => {
   });
 };
 
+// Use model.findOne() to Return a Single Matching Document from Your Database
+const food = "pasta";
+
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({ food: food }, function (err, food) {
+    if (err) return console.log(err);
+    done(null, food);
+  });
 };
 
 const findPersonById = (personId, done) => {
