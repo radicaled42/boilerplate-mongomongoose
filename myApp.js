@@ -109,17 +109,17 @@ const personNameEdit = "Daniel";
 
 const findAndUpdate = (personNameEdit, done) => {
   const ageToSet = 20;
+  const opts = { new: true };
 
-  Person.find({ name: personNameEdit }, function (err, personToEdit) {
-    if (err) return console.log(err);
-
-    personToEdit.age = ageToSet;
-
-    personToEdit.save(function (err, updatedPerson) {
+  Person.findOneAndUpdate(
+    { name: personNameEdit },
+    { age: ageToSet },
+    opts,
+    function (err, updatedPerson) {
       if (err) return console.error(err);
       done(null, updatedPerson);
-    });
-  });
+    }
+  );
 };
 
 const removeById = (personId, done) => {
