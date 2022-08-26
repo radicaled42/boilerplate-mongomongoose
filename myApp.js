@@ -6,7 +6,9 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-let personSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+let personSchema = new Schema({
   email: { type: String, required: true },
   age: Number,
   favoriteFoods: [String],
