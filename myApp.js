@@ -104,10 +104,22 @@ const findEditThenSave = (personId, done) => {
   //done(null /*, data*/);
 };
 
-const findAndUpdate = (personName, done) => {
+// Perform New Updates on a Document Using model.findOneAndUpdate()
+const personNameEdit = "Daniel";
+
+const findAndUpdate = (personNameEdit, done) => {
   const ageToSet = 20;
 
-  done(null /*, data*/);
+  Person.find({ name: personNameEdit }, function (err, personToEdit) {
+    if (err) return console.log(err);
+
+    personToEdit.age = ageToSet;
+
+    personToEdit.save(function (err, updatedPerson) {
+      if (err) return console.error(err);
+      done(null, updatedPerson);
+    });
+  });
 };
 
 const removeById = (personId, done) => {
