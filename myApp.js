@@ -122,6 +122,7 @@ const findAndUpdate = (personNameEdit, done) => {
   );
 };
 
+//Delete One Document Using model.findByIdAndRemove
 const removeById = (personId, done) => {
   Person.findByIdAndRemove(personId, function (err, personDeleted) {
     if (err) {
@@ -133,10 +134,18 @@ const removeById = (personId, done) => {
   });
 };
 
+// Delete Many Documents with model.remove()
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
 
-  done(null /*, data*/);
+  User.remove({ name: nameToRemove }, function (err, removeResult) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Result :", removeResult);
+      done(null, removeResult);
+    }
+  });
 };
 
 const queryChain = (done) => {
