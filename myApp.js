@@ -70,8 +70,18 @@ const findOneByFood = (food, done) => {
   });
 };
 
+// Use model.findById() to Search Your Database By _id
+const personId = "6308fb0220d3bc0784823440";
+
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findById(personId, function (err, personId) {
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log(personId);
+      done(null, personId);
+    }
+  });
 };
 
 const findEditThenSave = (personId, done) => {
